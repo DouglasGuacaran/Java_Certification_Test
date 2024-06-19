@@ -17,12 +17,12 @@ public class StockController {
     private StockService stockService;
 
     @GetMapping("/stock-por-sucursal")
-    public List<Stock> getStockBySucursal(@RequestParam int idSucursal) {
+    public List<Stock> getStockBySucursal(@RequestParam Long idSucursal) {
         return stockService.getStockBySucursal(idSucursal);
     }
     
     @GetMapping("/top3-stock-producto")
-    public List<Stock> getTop3StockByProducto(@RequestParam int idProducto) {
+    public List<Stock> getTop3StockByProducto(@RequestParam Long idProducto) {
         return stockService.getTop3StockByProducto(idProducto);
     }
 }

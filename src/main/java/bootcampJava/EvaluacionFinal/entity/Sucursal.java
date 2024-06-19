@@ -18,9 +18,12 @@ public class Sucursal {
 	@Id  
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSucursal;
-	@Column(name = "nombre_sucursal")
+	@Column
     private String nombreSucursal;
+	@Column
     private String direccionSucursal;
+	@Column
     private String comunaSucursal;
+	@Column
     private String telefonoSucursal;
 }

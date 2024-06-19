@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+
 @Table(name = "venta")
 public class Venta {
     @Id
@@ -25,5 +26,7 @@ public class Venta {
     @JoinColumn(name = "FK_idSucursal", referencedColumnName = "idSucursal")
     private Sucursal sucursal;
 
-    // otros campos si los hay
+    @ManyToOne
+    @JoinColumn(name = "FK_rutCliente", referencedColumnName = "rutCliente")
+    private Cliente cliente;
 }

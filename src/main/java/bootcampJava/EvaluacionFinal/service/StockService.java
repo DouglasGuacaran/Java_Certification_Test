@@ -15,11 +15,11 @@ public class StockService {
     @Autowired
     private StockRepository stockRepository;
 
-    public List<Stock> getStockBySucursal(int idSucursal) {
+    public List<Stock> getStockBySucursal(Long idSucursal) {
         return stockRepository.findByIdSucursal(idSucursal);
     }
 
-    public List<Stock> getTop3StockByProducto(int idProducto) {
+    public List<Stock> getTop3StockByProducto(Long idProducto) {
         Pageable topThree = PageRequest.of(0, 3);
         return stockRepository.findTop3ByIdProductoOrderByStockDisponibleDesc(idProducto, topThree);
     }

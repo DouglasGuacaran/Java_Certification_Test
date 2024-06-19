@@ -5,8 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,18 +12,29 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity
-public class Producto {
+
+public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProducto;
-	@Column(name = "nombre_producto")
-    private String nombreProducto;
-    private String descripcionProducto;
-    private int precioProducto;
-    @ManyToOne
-    @JoinColumn(name = "FK_idCategoriaProducto")
-    private int FK_idCategoriaProducto;
-  
+	private Long idCliente;
+	@Column
+	private String rutCliente;
+	@Column
+	private String nombreCliente;
+	@Column
+	private String primerApellidoCliente;
+	@Column
+	private String segundoApellidoCliente;
+	@Column
+	private String direccionCliente;
+	@Column
+	private String comunaCliente;
+	@Column
+	private String telefonoCliente;
+	@Column (name="e-mailCliente")
+	private String emailCliente;
+	
+	
+	
 }

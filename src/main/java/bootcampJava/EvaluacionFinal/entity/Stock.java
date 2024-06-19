@@ -17,13 +17,15 @@ import lombok.NoArgsConstructor;
 public class Stock {
     
     @Id
-    private int idSucursal;
+    private int FK_idSucursal;
 
     @Id
-    private int idProducto;
+    private int FK_idProducto;
+    
+    @Id
+    private int FK_idAdministrador;
     
     @Column
-    private int stockDisponible;
+    private int stock;
 
-    // Getters and setters
 }
