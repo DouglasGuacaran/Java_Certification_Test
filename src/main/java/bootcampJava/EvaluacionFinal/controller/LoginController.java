@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @Controller
 public class LoginController {
@@ -17,16 +19,17 @@ public class LoginController {
     @PostMapping("/login")
     public String loginSubmit(@RequestParam String username, @RequestParam String password, Model model) {
         if ("user".equals(username) && "password".equals(password)) {
-            model.addAttribute("username", username);
-            return "redirect:/";
+            return "redirect:/home";
         } else {
             model.addAttribute("error", "Invalid username or password");
             return "login";
         }
     }
     
-    @GetMapping("/")
-    public String home(Model model, @RequestParam(value = "username", required = false) String username) {
+    @GetMapping("/home")
+    public String home(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
         model.addAttribute("username", username);
         return "home";
     }

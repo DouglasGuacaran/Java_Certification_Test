@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StockId implements Serializable {
+	
     private int idSucursal;
     private int idProducto;
 
-    // Lombok will generate the equals and hashCode methods
 }
